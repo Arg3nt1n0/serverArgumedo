@@ -12,8 +12,8 @@
 
 <div data-role="page" id="inicio">
 
-	<div data-role="header">
-		<h1>Autenticacion de Usuario</h1>
+	<div data-role="header" data-theme="c">
+		<h1>User Auth</h1>
 	</div>
     
 	<div data-role="content">	
@@ -32,15 +32,26 @@
 	 
 </div>
  
-<div data-role="page" id="home">
+<div data-role="page" id="home" data-theme="c">
 
-	<div data-role="header">
-		<h1>Bienvenido</h1>
+	<div data-role="header" data-theme="c">
+		<h1>Users list</h1>
 	</div>
 
 	<div data-role="content">	
-		<h2> Bienvenido a la aplicacion </h2>
-		<h3> Su usuario y password son válidos</h3>
+		<h2> Welcome </h2>
+		<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke">
+	     <thead>
+	       <tr>
+	         <th data-priority="1">ID</th>
+	         <th>USER</th>
+	         <th data-priority="1">PASSWORD</th>
+	       </tr>
+	     </thead>
+	     <tbody class="usersTable">
+			<!-- data table -->
+	     </tbody>
+	   </table>
 	</div>
 
 </div>
@@ -74,7 +85,24 @@ $('#formulario').submit(function() {
 	})
 	return false;
 })
-	
+
+archivoUsuarios = "http://clubsolaris.com/server_argumedo/usuarios.php?jsoncallback=?"
+
+	$.getJSON(archivoUsuarios)
+	.done(function(respuestaServer2) {
+		
+		id = respuestaServer2.id;
+		id = id - 1;
+		for(var x=0; x<3; x++){
+		console.log('id: '+respuestaServer2.id[x]+'/ user: '+respuestaServer2.user[x]+'/ password: '+respuestaServer2.password[x]);
+		}
+
+		for(var x=0; x<3; x++){
+			 $('.usersTable').append('<tr><th data-priority="2">'+respuestaServer2.id[x]+'</th><td>'+respuestaServer2.user[x]+'</td><td data-priority="3">'+respuestaServer2.password[x]+'</td></tr>');
+		}
+
+  
+	});
 </script>
 
 </body>
