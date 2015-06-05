@@ -15,4 +15,17 @@ Control basico remoto de un servidor.
 Jonathan Argumedo Montenegro
 </author>
 
+<platform name="android">
+    <!-- you can use any density that exists in the Android project -->
+    <splash src="imgs/splash_screen.jpg" density="land-hdpi"/>
+    <splash src="imgs/splash_screen.jpg" density="land-ldpi"/>
+    <splash src="imgs/splash_screen.jpg" density="land-mdpi"/>
+    <splash src="imgs/splash_screen.jpg" density="land-xhdpi"/>
+
+    <splash src="imgs/splash_screen.jpg" density="port-hdpi"/>
+    <splash src="imgs/splash_screen.jpg" density="port-ldpi"/>
+    <splash src="imgs/splash_screen.jpg" density="port-mdpi"/>
+    <splash src="imgs/splash_screen.jpg" density="port-xhdpi"/>
+</platform>
+
 </widget>
